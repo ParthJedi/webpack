@@ -4,7 +4,6 @@ import bootsrap from 'bootstrap';
 import Typed from 'types.js';
 import validate from 'validate.js';
 import toastr from 'toastr';
-// import banner from './assets/banner-image.png';
 
 import './index.css';
 import './_vendor.scss';
@@ -58,5 +57,10 @@ buildFooterItems(footerCol1, footerCol1Items);
 buildFooterItems(footerCol2, footerCol2Items);
 buildFooterItems(footerCol3, footerCol3Items);
 
-// const bannerImg = document.getElementById('banner-image');
-// bannerImg.src = banner;
+$('#pricing-button').on('click', function () {
+	import(/* webpack ChunkName: "courses */ './pages/courses.js').then(
+		(module) => {
+			const showCourses = module.default;
+		}
+	);
+});
