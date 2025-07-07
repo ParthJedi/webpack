@@ -1,0 +1,23 @@
+{
+	"name": "webpack5-module-federation-micro-frontend",
+	"version": "1.0.0",
+	"description": "basics of webpack5's module federation for building a micro-frontend.",
+	"license": "ISC",
+	"author": "Parth Joshi",
+	"type": "commonjs",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"build": "webpack --config webpack.config.js --mode development",
+		"dev": "webpack serve --mode development open"
+	},
+	"devDependencies": {
+		"css-loader": "^7.1.2",
+		"html-webpack-plugin": "^5.6.3",
+		"sass": "^1.89.2",
+		"sass-loader": "^16.0.5",
+		"style-loader": "^4.0.0",
+		"webpack": "^5.99.9",
+		"webpack-cli": "^6.0.1"
+	}
+}
