@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
 	entry: {
@@ -20,11 +21,11 @@ module.exports = {
 		rules: [
 			{
 				test: /\.(css)$/,
-				use: ['style-loader', 'css-loader']
+				use: [MiniCssExtractPlugin.loader, 'css-loader']
 			},
 			{
 				test: /\.s[a|c]ss$/,
-				use: ['style-loader', 'css-loader', 'sass-loader']
+				use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
 			},
 			{
 				test: /\.(png|jpeg|jpg|svg|gif)$/,
@@ -53,7 +54,8 @@ module.exports = {
 					context: 'src'
 				}
 			]
-		})
+		}),
+		new MiniCssExtractPlugin()
 		// new BundleAnalyzerPlugin({}) // umcomment to analyze dependencies
 	],
 	optimization: {
