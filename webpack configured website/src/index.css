@@ -61,3 +61,10 @@ body {
 	font-weight: bold;
 	text-decoration: underline;
 }
+
+/* dummy css */
+
+.dummy-css {
+	background-color: red;
+	border: 2px solid black;
+}
