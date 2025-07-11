@@ -1,5 +1,6 @@
 import React from 'react';
 import './IconSlider.scss';
+import PropTypes from 'prop-types';
 
 const movies = [
   '1.jpeg',
@@ -19,18 +20,14 @@ const movies = [
   '15.jpeg',
 ];
 
-function IconSlider(props) {
+function IconSlider({ title }) {
   const randomMovie = (items) => {
     const movList = [];
-    for (let i = 0; i < items; i++) {
+    for (let i = 0; i < items; i += 1) {
       const counter = Math.round(Math.random() * 15);
       const key = Date.now() * Math.random();
       const mov = (
-        <img
-          key={key}
-          src={require(`../../assets/${movies[counter]}`)}
-          alt=""
-        />
+        <img key={key} src={`../../assets/${movies[counter]}`} alt="" />
       );
       movList.push(mov);
     }
@@ -39,10 +36,18 @@ function IconSlider(props) {
 
   return (
     <div className="list-container">
-      <div className="list-title">{props.title}</div>
+      <div className="list-title">{title}</div>
       <div className="movies-container">{randomMovie(5)}</div>
     </div>
   );
 }
+
+IconSlider.propTypes = {
+  title: PropTypes.string,
+};
+
+IconSlider.defaultProps = {
+  title: 'Random Title',
+};
 
 export default IconSlider;
